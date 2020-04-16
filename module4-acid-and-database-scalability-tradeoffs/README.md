@@ -22,6 +22,8 @@ Write a summary in the style of a possible blog post, and bring the
 questions/discussion to class. Bonus - later on, follow up and complete a real
 blog post about different database technologies!
 
+This technology had some barriers to entry. It requires certain parameters on intake which make the process of transfering data from one type of database to another fairly involved. I'd like to learn more about the value of using mongodb because relational databases seem more straightfoward in terms of what you would expect in how they operate.
+
 ## Live Lecture Task
 
 We covered a lot of ground this week - today we'll bring it together, both
@@ -44,14 +46,67 @@ the same questions as you did from the first module (when the RPG data was in
 SQLite). With PostgreSQL, answer the following:
 
 - How many passengers survived, and how many died?
+342 survived
+545 died
 - How many passengers were in each class?
+216
+487
+184
+
 - How many passengers survived/died within each class?
+Survived:
+87
+119
+136
+Died:
+80
+368
+97
 - What was the average age of survivors vs nonsurvivors?
+Survived:
+28.4083918128655
+Died:
+30.1385321100917
 - What was the average age of each passenger class?
+38.7889814814815
+25.1887474332649
+29.8686413043478
 - What was the average fare by passenger class? By survival?
+PC:
+84.1546874999999
+13.7077073921971
+20.6621831521739
+Survival:
+22.2085840366972
+48.3954076023392
 - How many siblings/spouses aboard on average, by passenger class? By survival?
+PC:
+0.41666666666666666667
+0.62012320328542094456
+0.40217391304347826087
+Survival:
+0.55779816513761467890
+0.47368421052631578947
+
 - How many parents/children aboard on average, by passenger class? By survival?
+PC:
+0.35648148148148148148
+0.39630390143737166324
+0.38043478260869565217
+
+Survival:
+0.33211009174311926606
+0.46491228070175438596
+
+
 - Do any passengers have the same name?
+SELECT titanic."Name"
+FROM titanic
+GROUP BY titanic."Name"
+HAVING count(*) > 1
+
+I don't think so, that query tells me 0.
+
 - (Bonus! Hard, may require pulling and processing with Python) How many married
   couples were aboard the Titanic? Assume that two people (one `Mr.` and one
   `Mrs.`) with the same last name and with at least 1 sibling/spouse aboard are
