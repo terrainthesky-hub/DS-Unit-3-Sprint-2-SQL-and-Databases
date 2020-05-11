@@ -23,5 +23,5 @@ where Nature > 100 and Shopping > 100"""
 #result = cursor.execute(query)
 #print("RESULT", result) #> returns cursor object w/o results (need to fetch the results)
 
-result2 = cursor.execute(query).fetchall(df)
+result2 = cursor.execute(query).fetchall()
 print("RESULT 2", result2)
