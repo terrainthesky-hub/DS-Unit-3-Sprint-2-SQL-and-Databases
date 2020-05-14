@@ -66,11 +66,19 @@ print(weaponcount)
 # - How many Items does each character have? (Return first 20 rows)
 
 inventory_count = inventory.contest.aggregate([
-    {"$group": {_id:'$character_id', count:{'$sum':1}}}
+    {"$group": {_id:{'$character_id'}, count:{'$sum':1}}}
 ])
 
 print(inventory_count)
 
 # - How many Weapons does each character have? (Return first 20 rows)
+
+weapon_count_char = inventory.contest.aggregate([
+    {"item_id": {"$lt": 175, '$gt': 137}},
+    {"$limit": 20},
+    {"$group": {_id:{'character_id'}}, count:{'$sum':1}}
+])
+
+breakpoint()
 # - On average, how many Items does each Character have?
 # - On average, how many Weapons does each character have?
